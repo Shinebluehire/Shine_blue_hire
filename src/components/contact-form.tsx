@@ -1,95 +1,119 @@
 "use client";
 
-import { useState } from 'react';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { suggestFaq, SuggestFaqInput } from '@/ai/flows/faq-suggestion';
-import { Loader2, Wand2, AlertTriangle } from 'lucide-react';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { useForm, zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import emailjs from "@emailjs/browser";
+import { useToast } from "@/hooks/use-toast";
+import { useState, useRef } from "react";
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 
-export function FaqSuggester() {
-  const [pageContent, setPageContent] = useState('');
-  const [suggestions, setSuggestions] = useState<string[]>([]);
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters."),
+  email: z.string().email("Please enter a valid email address."),
+  subject: z.string().min(5, "Subject must be at least 5 characters."),
+  message: z.string().min(10, "Message must be at least 10 characters."),
+});
+
+export function ContactForm() {
+  const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = async () => {
-    if (!pageContent.trim()) {
-      setError('Please paste some page content.');
-      return;
-    }
+  const form = useForm<z.infer<typeof contactFormSchema>>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = async (values: z.infer<typeof contactFormSchema>) => {
     setIsLoading(true);
-    setError(null);
-    setSuggestions([]);
 
     try {
-      const input: SuggestFaqInput = { pageContent };
-      const result = await suggestFaq(input);
-      if (result && result.faqSuggestions) {
-        setSuggestions(result.faqSuggestions);
-      } else {
-        setError('Could not generate FAQ suggestions. The response was empty.');
-      }
-    } catch (e) {
-      console.error('Error suggesting FAQs:', e);
-      setError('An error occurred while generating suggestions. Please try again.');
+      await emailjs.sendForm(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        formRef.current!,
+        "YOUR_PUBLIC_KEY"
+      );
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for contacting us. We'll get back to you shortly.",
+      });
+
+      form.reset();
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({
+        variant: "destructive",
+        title: "Failed to Send Message",
+        description: "An error occurred. Please try again later.",
+      });
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <Card className="shadow-lg">
-      <CardHeader>
-        <CardTitle className="font-headline flex items-center">
-          <Wand2 className="mr-2 h-6 w-6 text-accent" />
-          FAQ Suggestion Tool
-        </CardTitle>
-        <CardDescription>
-          Paste your webpage content below, and our AI assistant will suggest relevant FAQ questions.
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <Textarea
-          placeholder="Paste your page content here..."
-          value={pageContent}
-          onChange={(e) => setPageContent(e.target.value)}
-          rows={10}
-          className="resize-none"
-          disabled={isLoading}
-        />
-        {error && (
-          <p className="text-sm text-destructive flex items-center">
-            <AlertTriangle className="mr-2 h-4 w-4" />
-            {error}
-          </p>
-        )}
-        {suggestions.length > 0 && (
-          <div>
-            <h4 className="font-semibold mb-2 text-primary">Suggested FAQs:</h4>
-            <ScrollArea className="h-48 rounded-md border p-4 bg-muted/50">
-              <ul className="list-disc list-inside space-y-2 text-sm">
-                {suggestions.map((q, index) => (
-                  <li key={index}>{q}</li>
-                ))}
-              </ul>
-            </ScrollArea>
-          </div>
-        )}
-      </CardContent>
-      <CardFooter>
-        <Button onClick={handleSubmit} disabled={isLoading} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-          {isLoading ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Generating...
-            </>
-          ) : (
-            'Suggest FAQs'
+    <Form {...form}>
+      <form ref={formRef} onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Full Name</FormLabel>
+              <FormControl><Input placeholder="Your Name" {...field} disabled={isLoading} /></FormControl>
+              <FormMessage />
+            </FormItem>
           )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl><Input type="email" placeholder="you@example.com" {...field} disabled={isLoading} /></FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="subject"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Subject</FormLabel>
+              <FormControl><Input placeholder="How can we help?" {...field} disabled={isLoading} /></FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Message</FormLabel>
+              <FormControl><Textarea rows={5} placeholder="Your message..." {...field} disabled={isLoading} /></FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" className="w-full" disabled={isLoading}>
+          {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+          Send Message
         </Button>
-      </CardFooter>
-    </Card>
+      </form>
+    </Form>
   );
 }
