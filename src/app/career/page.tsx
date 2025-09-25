@@ -119,16 +119,16 @@ export default function CareerPage() {
       toast({
         title: "Application Submitted!",
         description:
-          "Thank you! We've received your application and sent a confirmation email.",
+          "Thank you! We've received your application and will be in touch if there's a good fit.",
       });
 
       form.reset();
-    } catch (error) {
+    } catch (error: any) {
       console.error("EmailJS Error:", error);
       toast({
         variant: "destructive",
         title: "Submission Failed",
-        description: "Please try again later.",
+        description: `There was a problem sending your application. Error: ${error?.text || 'Please try again later.'}`,
       });
     } finally {
       setIsLoading(false);
@@ -295,5 +295,3 @@ export default function CareerPage() {
     </PageContainer>
   );
 }
-
-    

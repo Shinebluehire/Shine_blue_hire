@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useForm, zodResolver } from "@hookform/resolvers/zod";
@@ -50,12 +51,12 @@ export function ContactForm() {
       });
 
       form.reset();
-    } catch (error) {
+    } catch (error: any) {
       console.error("EmailJS Error:", error);
       toast({
         variant: "destructive",
         title: "Failed to Send Message",
-        description: "An error occurred. Please try again later.",
+        description: `An error occurred. Error: ${error?.text || 'Please try again later.'}`,
       });
     } finally {
       setIsLoading(false);
