@@ -1,3 +1,4 @@
+
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -83,21 +84,35 @@ export default function CareerPage() {
     },
   });
 
+  const getBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = (error) => reject(error);
+    });
+  };
+
   const onSubmit = async (values: z.infer<typeof applicationFormSchema>) => {
     setIsLoading(true);
 
     try {
-      const formData = new FormData();
-      formData.append("name", values.name);
-      formData.append("email", values.email);
-      formData.append("phone", values.phone);
-      formData.append("coverLetter", values.coverLetter || "");
-      formData.append("resume", values.resume[0]);
+      const resumeFile = values.resume[0];
+      const resumeBase64 = await getBase64(resumeFile);
+      
+      const templateParams = {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        coverLetter: values.coverLetter || "Not provided",
+        resume: resumeBase64,
+        resume_name: resumeFile.name,
+      };
 
-      await emailjs.sendForm(
+      await emailjs.send(
         "service_qchflq5",
         "template_6rgx9if",
-        formRef.current!,
+        templateParams,
         "gHn8Rn7L1ogeEOLLE"
       );
 
@@ -111,6 +126,7 @@ export default function CareerPage() {
     } catch (error) {
       console.error("EmailJS Error:", error);
       toast({
+        variant: "destructive",
         title: "Submission Failed",
         description: "Please try again later.",
       });
@@ -134,6 +150,7 @@ export default function CareerPage() {
             layout="fill"
             objectFit="cover"
             className="object-cover"
+            data-ai-hint="team collaboration"
           />
           <div className="absolute inset-0 bg-primary/50 flex flex-col items-center justify-center text-center p-8">
             <h1 className="text-4xl md:text-5xl text-white font-bold mb-4">Grow With Shine Blue Hire</h1>
@@ -278,3 +295,5 @@ export default function CareerPage() {
     </PageContainer>
   );
 }
+
+    
