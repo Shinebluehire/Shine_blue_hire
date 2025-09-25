@@ -32,7 +32,9 @@ export default function MSMESecuredLoanPage() {
           <p className="mt-4 text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
             Unlock your MSME’s growth potential with secured loans offering better interest rates and higher limits.
           </p>
-          <LoanEnquiryModal />
+          <div className="mt-8">
+            <LoanEnquiryModal />
+          </div>
         </div>
       </SectionContainer>
 
