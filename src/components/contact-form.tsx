@@ -38,10 +38,10 @@ export function ContactForm() {
 
     try {
       await emailjs.sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_qchflq5",
+        "template_n6jjiar",
         formRef.current!,
-        "YOUR_PUBLIC_KEY"
+        "gHn8Rn7L1ogeEOLLE"
       );
 
       toast({

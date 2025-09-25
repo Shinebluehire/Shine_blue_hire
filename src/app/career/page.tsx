@@ -79,6 +79,7 @@ export default function CareerPage() {
       email: "",
       phone: "",
       coverLetter: "",
+      resume: undefined,
     },
   });
 
@@ -234,7 +235,7 @@ export default function CareerPage() {
                 <FormField
                   control={form.control}
                   name="resume"
-                  render={({ field: { onChange, ...rest } }) => (
+                  render={({ field: { value, onChange, ...rest } }) => (
                     <FormItem>
                       <FormLabel>Upload Resume (PDF/DOC - Max 5MB)</FormLabel>
                       <FormControl>
