@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export function LoanEnquiryModal() {
   const formRef = React.useRef<HTMLFormElement>(null);
@@ -58,23 +59,24 @@ export function LoanEnquiryModal() {
         <DialogHeader>
           <DialogTitle>Loan Enquiry</DialogTitle>
         </DialogHeader>
+        <ScrollArea className="h-[70vh] w-full">
+          <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="space-y-4 p-4">
+            <Input placeholder="Full Name" {...register("name", { required: true })} />
+            <Input placeholder="Email Address" type="email" {...register("email", { required: true })} />
+            <Input placeholder="Phone Number" type="tel" {...register("phone", { required: true })} />
+            <Input placeholder="City / Location" {...register("location", { required: true })} />
+            <Input placeholder="Loan Type (e.g., Used Commercial Vehicle)" {...register("loanType", { required: true })} />
+            <Input placeholder="Loan Amount (in ₹)" type="number" {...register("loanAmount", { required: true })} />
+            <Input placeholder="Employment Type (Salaried / Self-employed)" {...register("employmentType", { required: true })} />
+            <Input placeholder="Monthly Income (in ₹)" type="number" {...register("monthlyIncome", { required: true })} />
+            <Textarea placeholder="Additional message (optional)" {...register("message")} />
 
-        <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <Input placeholder="Full Name" {...register("name", { required: true })} />
-          <Input placeholder="Email Address" type="email" {...register("email", { required: true })} />
-          <Input placeholder="Phone Number" type="tel" {...register("phone", { required: true })} />
-          <Input placeholder="City / Location" {...register("location", { required: true })} />
-          <Input placeholder="Loan Type (e.g., Used Commercial Vehicle)" {...register("loanType", { required: true })} />
-          <Input placeholder="Loan Amount (in ₹)" type="number" {...register("loanAmount", { required: true })} />
-          <Input placeholder="Employment Type (Salaried / Self-employed)" {...register("employmentType", { required: true })} />
-          <Input placeholder="Monthly Income (in ₹)" type="number" {...register("monthlyIncome", { required: true })} />
-          <Textarea placeholder="Additional message (optional)" {...register("message")} />
-
-          <Button type="submit" className="w-full bg-primary text-white" disabled={loading}>
-            {loading && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
-            Submit Enquiry
-          </Button>
-        </form>
+            <Button type="submit" className="w-full bg-primary text-white" disabled={loading}>
+              {loading && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
+              Submit Enquiry
+            </Button>
+          </form>
+        </ScrollArea>
       </DialogContent>
     </Dialog>
   );
