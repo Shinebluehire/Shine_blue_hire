@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { suggestFaq, SuggestFaqInput } from '@/ai/flows/faq-suggestion';
+import { suggestFaq, type SuggestFaqInput } from '@/ai/flows/faq-suggestion';
 import { Loader2, Wand2, AlertTriangle } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
