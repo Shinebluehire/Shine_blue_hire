@@ -1,0 +1,104 @@
+
+import Image from 'next/image';
+import { PageContainer } from '@/components/shared/page-container';
+import { SectionContainer } from '@/components/shared/section-container';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { UserCircle, Briefcase, Users } from 'lucide-react';
+
+const boardOfDirectors = [
+  {
+    name: 'Hari Parsad Sharma',
+    title: 'MD & CEO',
+    photo: '/images/director/hari.png',
+    bio: 'He is Graduate by qualification with over 20 years of rich experience in the field of finance, sales, collections, operations, credit, legal, Debt Management and business development. He was previously Associated with Dev Finance as Business Owner from 2003 & also engaged in Three-wheeler dealership of Kerala & Baxy. He has developed a strategic presence of the company in high yielding - pre-owned vehicle financing with expertise in loan origination and collection.',
+    dataAiHint: 'professional headshot'
+  },
+  {
+    name: 'Mr. Ashish Nagwan',
+    title: 'Executive Director',
+    photo: '/images/director/Ashish.png',
+    bio: 'He is Post Graduate & CA intern (IPCC 2012) by qualification with over 5 years of experience in the field of finance and accounts, Debt Management. He is previously Associated with Dev Finance as accountant from 2018 & also engaged teaching in collage. Complete Article ship from Somani Associate from 2012 to 2015. he is so energetic by nature and always work for growth of company.',
+    dataAiHint: 'corporate portrait'
+  },
+  {
+    name: 'Mrs. Rekha Sharma',
+    title: 'Executive Director',
+    photo: '/images/director/rekha.png',
+    bio: 'She is Graduate by qualification with over 5 years of rich experience in the Management and development. she is also engaged in proprietorship farm of three-wheeler business by name of Dev automobile. She is engaged in social working & activities.',
+    dataAiHint: 'business person'
+  },
+];
+
+const keyManagement = [
+  { name: 'Mr. Suresh Iyer', designation: 'Chief Financial Officer (CFO)' },
+  { name: 'Ms. Anita Desai', designation: 'Head of Operations' },
+  { name: 'Mr. Vikram Singh', designation: 'Chief Risk Officer (CRO)' },
+  { name: 'Ms. Kavita Reddy', designation: 'Head of Human Resources' },
+];
+
+export default function OurTeamPage() {
+  return (
+    <PageContainer>
+      <SectionContainer title="Our Leadership" subtitle="Meet the Driving Force Behind Shine Blue Hire" className="pt-0 md:pt-0">
+         <p className="text-center text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
+          Our team comprises experienced professionals dedicated to our mission of financial inclusion and excellence.
+        </p>
+      </SectionContainer>
+
+      {/* Board of Directors */}
+      <SectionContainer title="Board of Directors" subtitle="Guiding Our Vision">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {boardOfDirectors.map((director, index) => (
+            <Card
+              key={index}
+              className="shadow-lg hover:shadow-xl transition-all duration-300 animate-fadeInSlideUp"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <div className="flex justify-center mt-6">
+                <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-primary shadow-md">
+                  <Image
+                    src={director.photo}
+                    alt={director.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <CardHeader className="pb-2">
+                <CardTitle className="font-headline text-xl text-primary">{director.name}</CardTitle>
+                <CardDescription>{director.title}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">{director.bio}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </SectionContainer>
+
+      <SectionContainer title="Key Management Personnel" subtitle="Leading Our Operations" className="bg-secondary/30">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {keyManagement.map((person, index) => (
+            <Card key={index} className="text-center shadow-md">
+              <CardHeader className="items-center">
+                <UserCircle className="h-16 w-16 text-primary mb-3" />
+                <CardTitle className="font-headline text-lg text-primary">{person.name}</CardTitle>
+                <CardDescription>{person.designation}</CardDescription>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
+      </SectionContainer>
+
+      <SectionContainer title="Organizational Chart" subtitle="Our Structure">
+        <div className="text-center">
+          <Users className="h-12 w-12 text-primary mx-auto mb-4" />
+          <p className="text-muted-foreground mb-4">An overview of our company's organizational structure will be displayed here.</p>
+          <div className="aspect-video max-w-3xl mx-auto bg-muted rounded-lg shadow-md flex items-center justify-center">
+            <Image src="https://placehold.co/800x450.png" alt="Organizational Chart Placeholder" width={800} height={450} className="rounded-lg" data-ai-hint="organization chart"/>
+          </div>
+        </div>
+      </SectionContainer>
+    </PageContainer>
+  );
+}
