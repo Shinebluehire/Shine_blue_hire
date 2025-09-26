@@ -12,6 +12,7 @@ import Image from "next/image";
 import { PageContainer } from "@/components/shared/page-container";
 import { SectionContainer } from "@/components/shared/section-container";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 import {
   Card,
@@ -30,6 +31,7 @@ import {
   ThumbsUp,
   Briefcase,
   MapPin,
+  Info,
 } from "lucide-react";
 
 const jobOpenings = [
@@ -238,7 +240,25 @@ export default function CareerPage() {
                   name="resume"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Resume Link (Public Google Drive)</FormLabel>
+                      <div className="flex items-center gap-2">
+                        <FormLabel>Resume Link (Public Google Drive)</FormLabel>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Info className="h-4 w-4 text-muted-foreground cursor-pointer" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p className="font-bold mb-2">How to get a public link:</p>
+                              <ol className="list-decimal list-inside space-y-1 text-xs">
+                                <li>Upload your resume to Google Drive.</li>
+                                <li>Right-click the file and select "Share".</li>
+                                <li>Change "General access" to "Anyone with the link".</li>
+                                <li>Click "Copy link" and paste it here.</li>
+                              </ol>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
                       <FormControl>
                         <div className="relative">
                           <Input
