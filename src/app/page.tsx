@@ -158,11 +158,11 @@ export default function HomePage() {
           </Carousel>
         </div>
         <div className="relative z-10 text-center">
-          <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg">
-            Financial Solutions for a Brighter Future
+          <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
+            Shine Blue Hire Purchase Pvt. Ltd.
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-primary-foreground/90 font-body drop-shadow-md">
-            Shine Blue Hire Purchase: Your trusted partner in achieving your financial goals with tailored loan products and services.
+            Financial Solutions for a Brighter Future. Your trusted partner in achieving your financial goals with tailored loan products and services.
           </p>
           <div className="space-x-0 space-y-4 sm:space-y-0 sm:space-x-4">
             <LoanEnquiryModal />
