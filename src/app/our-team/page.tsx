@@ -32,7 +32,7 @@ const boardOfDirectors = [
 const keyManagement = [
   { name: 'Mr. Manoj Kumar Tailor', designation: 'Senior Vice President' },
   { name: 'Mr. Banwari Lal Garhwal', designation: 'Vice President (Sales - SBL)' },
-  { name: 'Mr. Mandeep Singh', designation: 'Chief Risk Officer (CRO)' },
+  { name: 'Mr. Mandeep Singh', designation: 'Collection Head' },
   { name: 'Ms. Kavita Reddy', designation: 'Head of Human Resources' },
 ];
 
