@@ -30,7 +30,7 @@ const boardOfDirectors = [
 ];
 
 const keyManagement = [
-  { name: 'Mr. Manoj Kumar Tailor', designation: 'Chief Financial Officer (CFO)' },
+  { name: 'Mr. Manoj Kumar Tailor', designation: 'Senior Vice President' },
   { name: 'Ms. Anita Desai', designation: 'Head of Operations' },
   { name: 'Mr. Vikram Singh', designation: 'Chief Risk Officer (CRO)' },
   { name: 'Ms. Kavita Reddy', designation: 'Head of Human Resources' },
