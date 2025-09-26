@@ -24,7 +24,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import {
-  UploadCloud,
+  Link as LinkIcon,
   Loader2,
   Users,
   ThumbsUp,
@@ -61,10 +61,7 @@ const applicationFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Please enter a valid email address."),
   phone: z.string().regex(/^\+?[1-9]\d{9,14}$/, "Please enter a valid phone number."),
-  resume: z
-    .any()
-    .refine((files) => files?.length === 1, "Resume is required.")
-    .refine((files) => files?.[0]?.size <= 5 * 1024 * 1024, "Max file size is 5MB."),
+  resume: z.string().url({ message: "Please enter a valid Google Drive link." }).min(1, "Resume link is required."),
   coverLetter: z.string().optional(),
 });
 
@@ -80,33 +77,20 @@ export default function CareerPage() {
       email: "",
       phone: "",
       coverLetter: "",
-      resume: undefined,
+      resume: "",
     },
   });
-
-  const getBase64 = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
-    });
-  };
 
   const onSubmit = async (values: z.infer<typeof applicationFormSchema>) => {
     setIsLoading(true);
 
     try {
-      const resumeFile = values.resume[0];
-      const resumeBase64 = await getBase64(resumeFile);
-      
       const templateParams = {
         name: values.name,
         email: values.email,
         phone: values.phone,
         coverLetter: values.coverLetter || "Not provided",
-        resume: resumeBase64,
-        resume_name: resumeFile.name,
+        resume_link: values.resume,
       };
 
       await emailjs.send(
@@ -252,20 +236,18 @@ export default function CareerPage() {
                 <FormField
                   control={form.control}
                   name="resume"
-                  render={({ field: { value, onChange, ...rest } }) => (
+                  render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Upload Resume (PDF/DOC - Max 5MB)</FormLabel>
+                      <FormLabel>Resume Link (Public Google Drive)</FormLabel>
                       <FormControl>
                         <div className="relative">
                           <Input
-                            type="file"
-                            accept=".pdf,.doc,.docx"
-                            onChange={(e) => onChange(e.target.files)}
-                            {...rest}
-                            className="file-input"
+                            type="url"
+                            placeholder="https://docs.google.com/document/d/..."
+                            {...field}
                             disabled={isLoading}
                           />
-                          <UploadCloud className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                          <LinkIcon className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         </div>
                       </FormControl>
                       <FormMessage />
