@@ -21,10 +21,14 @@ const productImages = [
   '/images/product/img9.jpeg'
 ];
 
-// Group images into pairs
-const imagePairs: (string | null)[][] = [];
-for (let i = 0; i < productImages.length; i += 2) {
-  imagePairs.push([productImages[i], productImages[i + 1] || null]);
+// Group images into sets of three
+const imageGroups: (string | null)[][] = [];
+for (let i = 0; i < productImages.length; i += 3) {
+  imageGroups.push([
+    productImages[i],
+    productImages[i + 1] || null,
+    productImages[i + 2] || null
+  ]);
 }
 
 export function PromotionCarouselModal() {
@@ -41,7 +45,7 @@ export function PromotionCarouselModal() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="max-w-4xl w-full p-2 bg-black/80 border-none">
+      <DialogContent className="max-w-6xl w-full p-2 bg-black/80 border-none">
         <DialogHeader>
           <DialogTitle className="sr-only">Product Promotions</DialogTitle>
         </DialogHeader>
@@ -66,26 +70,39 @@ export function PromotionCarouselModal() {
           onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
-            {imagePairs.map((pair, index) => (
+            {imageGroups.map((group, index) => (
               <CarouselItem key={index}>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="relative aspect-square">
-                    <Image
-                      src={pair[0]!}
-                      alt={`Product Image ${index * 2 + 1}`}
-                      fill
-                      className="object-contain rounded-md"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                    />
-                  </div>
-                  {pair[1] && (
+                <div className="grid grid-cols-3 gap-2">
+                  {group[0] && (
                     <div className="relative aspect-square">
                       <Image
-                        src={pair[1]}
-                        alt={`Product Image ${index * 2 + 2}`}
+                        src={group[0]}
+                        alt={`Product Image ${index * 3 + 1}`}
                         fill
                         className="object-contain rounded-md"
-                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                        sizes="(max-width: 768px) 33vw, (max-width: 1200px) 25vw, 20vw"
+                      />
+                    </div>
+                  )}
+                  {group[1] && (
+                    <div className="relative aspect-square">
+                      <Image
+                        src={group[1]}
+                        alt={`Product Image ${index * 3 + 2}`}
+                        fill
+                        className="object-contain rounded-md"
+                        sizes="(max-width: 768px) 33vw, (max-width: 1200px) 25vw, 20vw"
+                      />
+                    </div>
+                  )}
+                  {group[2] && (
+                    <div className="relative aspect-square">
+                      <Image
+                        src={group[2]}
+                        alt={`Product Image ${index * 3 + 3}`}
+                        fill
+                        className="object-contain rounded-md"
+                        sizes="(max-width: 768px) 33vw, (max-width: 1200px) 25vw, 20vw"
                       />
                     </div>
                   )}
