@@ -40,9 +40,6 @@ export default function OurTeamPage() {
   return (
     <PageContainer>
       <SectionContainer title="Our Leadership" subtitle="Meet the Driving Force Behind Shine Blue Hire" className="pt-0 md:pt-0">
-         <p className="text-center text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
-          Our team comprises experienced professionals dedicated to our mission of financial inclusion and excellence.
-        </p>
       </SectionContainer>
 
       {/* Board of Directors */}
