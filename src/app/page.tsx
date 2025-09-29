@@ -183,7 +183,7 @@ export default function HomePage() {
           >
             <CarouselContent className="w-full">
               {[
-                { src: '/images/banner/hero-banner-1.jpeg', alt: 'Promotional Banner 1', dataAiHint: 'promotional banner' },
+                // { src: '/images/banner/hero-banner-1.jpeg', alt: 'Promotional Banner 1', dataAiHint: 'promotional banner' },
                 { src: '/images/banner/hero-banner-2.jpeg', alt: 'Promotional Banner 2', dataAiHint: 'promotional banner' },
                 { src: '/images/banner/hero-banner-3.jpeg', alt: 'Promotional Banner 3', dataAiHint: 'promotional banner' },
                 { src: '/images/banner/hero-banner-4.jpeg', alt: 'Promotional Banner 4', dataAiHint: 'promotional banner' },
