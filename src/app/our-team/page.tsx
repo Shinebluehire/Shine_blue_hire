@@ -44,11 +44,11 @@ const keyManagement = [
 ];
 
 const teamImages = [
-  { src: '/images/media/img1.jpg', alt: 'Team Celebration Image 1', dataAiHint: 'team celebration' },
-  { src: '/images/media/img2.jpg', alt: 'Team Celebration Image 2', dataAiHint: 'team meeting' },
-  { src: '/images/media/img3.jpg', alt: 'Team Celebration Image 3', dataAiHint: 'office event' },
-  { src: '/images/media/img4.jpg', alt: 'Team Celebration Image 4', dataAiHint: 'team outing' },
-  { src: '/images/media/img5.jpg', alt: 'Team Celebration Image 5', dataAiHint: 'group photo' },
+  { src: '/images/media/img1.jpeg', alt: 'Team Celebration Image 1', dataAiHint: 'team celebration' },
+  { src: '/images/media/img2.jpeg', alt: 'Team Celebration Image 2', dataAiHint: 'team meeting' },
+  { src: '/images/media/img3.jpeg', alt: 'Team Celebration Image 3', dataAiHint: 'office event' },
+  { src: '/images/media/img4.jpeg', alt: 'Team Celebration Image 4', dataAiHint: 'team outing' },
+  { src: '/images/media/img5.jpeg', alt: 'Team Celebration Image 5', dataAiHint: 'group photo' },
 ];
 
 export default function OurTeamPage() {
