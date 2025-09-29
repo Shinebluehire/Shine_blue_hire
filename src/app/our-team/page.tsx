@@ -1,9 +1,16 @@
 
+"use client";
+
 import Image from 'next/image';
+import * as React from 'react';
+import Autoplay from "embla-carousel-autoplay";
+
 import { PageContainer } from '@/components/shared/page-container';
 import { SectionContainer } from '@/components/shared/section-container';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { UserCircle, Briefcase, Users } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+
 
 const boardOfDirectors = [
   {
@@ -36,7 +43,19 @@ const keyManagement = [
   { name: 'Mr. Praveen Kumar', designation: 'Head of Human Resources' },
 ];
 
+const teamImages = [
+  { src: '/images/media/img1.jpg', alt: 'Team Celebration Image 1', dataAiHint: 'team celebration' },
+  { src: '/images/media/img2.jpg', alt: 'Team Celebration Image 2', dataAiHint: 'team meeting' },
+  { src: '/images/media/img3.jpg', alt: 'Team Celebration Image 3', dataAiHint: 'office event' },
+  { src: '/images/media/img4.jpg', alt: 'Team Celebration Image 4', dataAiHint: 'team outing' },
+  { src: '/images/media/img5.jpg', alt: 'Team Celebration Image 5', dataAiHint: 'group photo' },
+];
+
 export default function OurTeamPage() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  )
+
   return (
     <PageContainer>
       <SectionContainer title="Our Leadership" subtitle="Meet the Driving Force Behind Shine Blue Hire" className="pt-0 md:pt-0">
@@ -87,6 +106,41 @@ export default function OurTeamPage() {
         </div>
       </SectionContainer>
 
+      <SectionContainer title="Team Celebration" subtitle="Our Moments Together">
+        <Carousel
+          plugins={[plugin.current]}
+          className="w-full max-w-4xl mx-auto"
+          opts={{
+            loop: true,
+          }}
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
+        >
+          <CarouselContent>
+            {teamImages.map((image, index) => (
+              <CarouselItem key={index}>
+                <Card className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="aspect-video relative">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={image.dataAiHint}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2" />
+          <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2" />
+        </Carousel>
+      </SectionContainer>
+      
       <SectionContainer title="Organizational Chart" subtitle="Our Structure">
         <div className="text-center">
           <Users className="h-12 w-12 text-primary mx-auto mb-4" />
