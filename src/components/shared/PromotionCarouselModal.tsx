@@ -4,7 +4,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
-import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogClose, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { X } from "lucide-react";
 import { Button } from "../ui/button";
@@ -18,7 +18,7 @@ const productImages = [
   '/images/product/img6.jpeg',
   '/images/product/img7.jpeg',
   '/images/product/img8.jpeg',
-  '/images_product/img9.jpeg'
+  '/images/product/img9.jpeg'
 ];
 
 // Group images into pairs
@@ -42,6 +42,9 @@ export function PromotionCarouselModal() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="max-w-4xl w-full p-2 bg-black/80 border-none">
+        <DialogHeader>
+          <DialogTitle className="sr-only">Product Promotions</DialogTitle>
+        </DialogHeader>
         <DialogClose asChild>
           <Button
             variant="ghost"
