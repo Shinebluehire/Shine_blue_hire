@@ -17,6 +17,8 @@ import { LoanEnquiryModal } from "@/components/shared/LoanEnquiryModel";
 
 import { Lightbulb, Target } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { PromotionCarouselModal } from '@/components/shared/PromotionCarouselModal';
+
 
 const values = [
   {
@@ -124,6 +126,7 @@ export default function HomePage() {
 
   return (
     <PageContainer className="py-0 md:py-0"> {/* Remove default PageContainer padding for full-width hero */}
+      <PromotionCarouselModal />
       {/* Hero Section */}
       <SectionContainer noSpacing
         className="bg-gradient-to-br from-primary/80 via-primary to-blue-700 text-primary-foreground py-20 md:py-20 relative overflow-hidden h-[60vh] md:h-[75vh] flex items-center justify-center"
