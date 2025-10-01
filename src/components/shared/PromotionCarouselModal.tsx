@@ -53,34 +53,36 @@ export function PromotionCarouselModal() {
             <span className="sr-only">Close</span>
           </Button>
         </DialogClose>
-        <Carousel
-          plugins={[plugin.current]}
-          className="w-full"
-          opts={{
-            loop: true,
-            align: "start",
-          }}
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
-        >
-          <CarouselContent className="-ml-2">
-            {productImages.map((src, index) => (
-              <CarouselItem key={index} className="pl-2 basis-full md:basis-1/2 lg:basis-1/3">
-                <div className="relative aspect-square">
-                  <Image
-                    src={src}
-                    alt={`Product Image ${index + 1}`}
-                    fill
-                    className="object-cover rounded-md"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 text-white bg-black/30 hover:bg-black/50" />
-          <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 text-white bg-black/30 hover:bg-black/50" />
-        </Carousel>
+        <div className="w-full">
+            <Carousel
+            plugins={[plugin.current]}
+            className="w-full"
+            opts={{
+                loop: true,
+                align: "start",
+            }}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+            >
+            <CarouselContent className="-ml-2">
+                {productImages.map((src, index) => (
+                <CarouselItem key={index} className="pl-2 basis-full md:basis-1/2 lg:basis-1/3">
+                    <div className="relative aspect-square">
+                    <Image
+                        src={src}
+                        alt={`Product Image ${index + 1}`}
+                        fill
+                        className="object-contain rounded-md"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    </div>
+                </CarouselItem>
+                ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 text-white bg-black/30 hover:bg-black/50" />
+            <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 text-white bg-black/30 hover:bg-black/50" />
+            </Carousel>
+        </div>
       </DialogContent>
     </Dialog>
   );
