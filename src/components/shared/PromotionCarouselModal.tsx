@@ -21,22 +21,16 @@ const productImages = [
   '/images/product/img9.jpeg'
 ];
 
-// Group images into sets of three
-const imageGroups: (string | null)[][] = [];
-for (let i = 0; i < productImages.length; i += 3) {
-  imageGroups.push([
-    productImages[i],
-    productImages[i + 1] || null,
-    productImages[i + 2] || null
-  ]);
-}
-
 export function PromotionCarouselModal() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   // Open the modal on component mount
   React.useEffect(() => {
-    setIsOpen(true);
+    // Ensure this only runs on the client
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 1000); // Delay opening slightly to avoid hydration issues and be less intrusive
+    return () => clearTimeout(timer);
   }, []);
 
   const plugin = React.useRef(
@@ -59,53 +53,27 @@ export function PromotionCarouselModal() {
             <span className="sr-only">Close</span>
           </Button>
         </DialogClose>
-        
         <Carousel
           plugins={[plugin.current]}
           className="w-full"
           opts={{
             loop: true,
+            align: "start",
           }}
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
         >
-          <CarouselContent>
-            {imageGroups.map((group, index) => (
-              <CarouselItem key={index}>
-                <div className="grid grid-cols-3 gap-2">
-                  {group[0] && (
-                    <div className="relative aspect-square">
-                      <Image
-                        src={group[0]}
-                        alt={`Product Image ${index * 3 + 1}`}
-                        fill
-                        className="object-contain rounded-md"
-                        sizes="(max-width: 768px) 33vw, (max-width: 1200px) 25vw, 20vw"
-                      />
-                    </div>
-                  )}
-                  {group[1] && (
-                    <div className="relative aspect-square">
-                      <Image
-                        src={group[1]}
-                        alt={`Product Image ${index * 3 + 2}`}
-                        fill
-                        className="object-contain rounded-md"
-                        sizes="(max-width: 768px) 33vw, (max-width: 1200px) 25vw, 20vw"
-                      />
-                    </div>
-                  )}
-                  {group[2] && (
-                    <div className="relative aspect-square">
-                      <Image
-                        src={group[2]}
-                        alt={`Product Image ${index * 3 + 3}`}
-                        fill
-                        className="object-contain rounded-md"
-                        sizes="(max-width: 768px) 33vw, (max-width: 1200px) 25vw, 20vw"
-                      />
-                    </div>
-                  )}
+          <CarouselContent className="-ml-2">
+            {productImages.map((src, index) => (
+              <CarouselItem key={index} className="pl-2 basis-full md:basis-1/2 lg:basis-1/3">
+                <div className="relative aspect-square">
+                  <Image
+                    src={src}
+                    alt={`Product Image ${index + 1}`}
+                    fill
+                    className="object-cover rounded-md"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
               </CarouselItem>
             ))}
