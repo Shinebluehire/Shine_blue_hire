@@ -63,7 +63,11 @@ export default function ContactUsPage() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-accent" />
-                  <a href="tel:+911234567890" className="text-muted-foreground hover:text-primary">+91 12345 67890</a>
+                  <a href="tel:01572245235" className="text-muted-foreground hover:text-primary">01572-245235</a>
+                </div>
+                 <div className="flex items-center space-x-3">
+                  <Phone className="h-5 w-5 text-accent" />
+                  <a href="tel:9251200245" className="text-muted-foreground hover:text-primary">9251200245</a>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-accent" />
@@ -103,7 +107,7 @@ export default function ContactUsPage() {
             </Card>
             
             <Button asChild size="lg" className="w-full bg-green-500 hover:bg-green-600 text-white">
-              <a href="https://wa.me/911234567890" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/919251200245" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" /> Support on WhatsApp
               </a>
             </Button>
