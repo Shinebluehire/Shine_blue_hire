@@ -158,32 +158,6 @@ export default function CareerPage() {
         </div>
       </SectionContainer>
 
-      {/* Job Openings */}
-      <SectionContainer title="Current Openings" subtitle="Find Your Opportunity" className="bg-secondary/30">
-        {jobOpenings.length > 0 ? (
-          <div className="space-y-6">
-            {jobOpenings.map((job, i) => (
-              <Card key={i} className="shadow-sm hover:shadow-md">
-                <CardContent className="p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-primary">{job.title}</h3>
-                    <div className="flex items-center text-sm text-muted-foreground mt-1">
-                      <MapPin className="h-4 w-4 mr-2 text-accent" />
-                      {job.location}
-                    </div>
-                  </div>
-                  <Button asChild className="bg-primary text-white hover:bg-primary/90">
-                    <a href={job.applyLink}>Apply Now</a>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        ) : (
-          <p className="text-center text-muted-foreground">No openings currently.</p>
-        )}
-      </SectionContainer>
-
       {/* Application Form */}
       <SectionContainer title="General Application" subtitle="Don’t See a Fit? We Still Want to Hear From You!">
         <Card className="shadow-xl max-w-2xl mx-auto">
@@ -291,5 +265,3 @@ export default function CareerPage() {
     </PageContainer>
   );
 }
-
-    
