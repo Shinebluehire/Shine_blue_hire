@@ -287,34 +287,6 @@ export default function HomePage() {
         </div>
       </SectionContainer>
 
-
-      {/* Media/News Link Section */}
-      <SectionContainer
-        noSpacing
-        className="bg-muted/30"
-        contentClassName="container mx-auto px-4 sm:px-6 lg:px-8"
-      >
-        <div className="text-center py-16 animate-fadeInSlideUp transition-all duration-700">
-          <div className="inline-flex items-center justify-center bg-accent/20 rounded-full p-4 mb-6 shadow-sm hover:scale-105 transition-transform duration-300">
-            <Newspaper className="h-12 w-12 text-accent" />
-          </div>
-          <h3 className="text-3xl font-bold text-primary mb-3 tracking-tight">Stay Updated</h3>
-          <p className="text-base text-muted-foreground mb-8 max-w-xl mx-auto leading-relaxed">
-            Discover our latest news, events, achievements, and media coverage. Stay connected with Shine Blue Hire Purchase Pvt. Ltd.
-          </p>
-          <Button
-            asChild
-            variant="outline"
-            className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 px-6 py-2 text-lg font-medium rounded-md"
-          >
-            <Link href="/media" className="inline-flex items-center gap-2">
-              Visit Our Media Section
-              <span className="transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-          </Button>
-        </div>
-      </SectionContainer>
-
       {/* CTA Banners Section */}
       <SectionContainer
         noSpacing
