@@ -131,7 +131,7 @@ export default function CareerPage() {
       >
         <div className="relative mb-12 overflow-hidden rounded-lg shadow-xl aspect-[16/7]">
           <Image
-            src="https://placehold.co/1200x525.png"
+            src="/images/img_join.jpeg"
             alt="Diverse team working collaboratively"
             layout="fill"
             objectFit="cover"
