@@ -11,13 +11,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
-// const policies = [
-//   { id: 'kyc', title: 'KYC and AML Policy', description: 'Our Know Your Customer policy ensures compliance and security.' },
-//   { id: 'aml', title: 'AML Policy', description: 'Our Anti-Money Laundering policy outlines procedures to prevent financial crimes.' },
-//   { id: 'privacy', title: 'Privacy Policy', description: 'How we collect, use, and protect your personal information.' },
-//   { id: 'grievance', title: 'Grievance Redressal', description: 'Procedure for addressing customer complaints and concerns.' },
-// ];
-
 const policies = [
   { 
     id: 'kyc-aml', 
@@ -96,7 +89,7 @@ export default function GovernancePage() {
                 {policy.title}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                {policy.description} Detailed policy document can be accessed <Link href={`/policies/${policy.id}.pdf`} target="_blank" className="text-accent hover:underline">here (PDF placeholder)</Link>.
+                {policy.description} Detailed policy document can be accessed <Link href={policy.link} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">here</Link>.
               </AccordionContent>
             </AccordionItem>
           ))}
