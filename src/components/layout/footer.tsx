@@ -23,7 +23,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li><Link href="/about-us" className="text-sm hover:underline text-primary-foreground/80">About Us</Link></li>
               <li><Link href="/products" className="text-sm hover:underline text-primary-foreground/80">Our Products</Link></li>
-              {/* <li><Link href="/services" className="text-sm hover:underline text-primary-foreground/80">Services</Link></li> */}
+              <li><Link href="/career" className="text-sm hover:underline text-primary-foreground/80">Career</Link></li>
               <li><Link href="/contact-us" className="text-sm hover:underline text-primary-foreground/80">Contact Us</Link></li>
             </ul>
           </div>

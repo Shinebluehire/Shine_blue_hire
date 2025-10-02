@@ -53,7 +53,7 @@ export function ContactForm() {
 
       form.reset();
     } catch (error: any) {
-      console.error("EmailJS Error:", error);
+      console.error("EmailJS Error:", error.text);
       toast({
         variant: "destructive",
         title: "Failed to Send Message",
