@@ -58,7 +58,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-primary-foreground/20 pt-8 text-center">
           <p className="text-sm text-primary-foreground/80">
-            &copy; {currentYear} Shriram and Team. All rights reserved.
+            &copy; {currentYear} Shine Blue Hire. All rights reserved.
           </p>
         </div>
       </div>
