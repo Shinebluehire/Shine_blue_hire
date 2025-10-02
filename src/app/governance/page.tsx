@@ -99,27 +99,6 @@ export default function GovernancePage() {
         </p>
       </SectionContainer>
 
-      <SectionContainer title="Investor Grievance Redressal" subtitle="Addressing Investor Concerns" className="bg-secondary/30">
-        <Card className="shadow-md">
-          <CardHeader>
-             <div className="flex items-center">
-                <ShieldCheck className="h-8 w-8 text-accent mr-3" />
-                <CardTitle className="font-headline text-xl text-primary">Contact for Investor Grievances</CardTitle>
-              </div>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground mb-2">
-              [Name of Compliance Officer/Investor Relations Officer]<br/>
-              [Designation]<br/>
-              Email: <a href="mailto:investors@shinebluehire.com" className="text-accent hover:underline">investors@shinebluehire.com</a><br/>
-              Phone: [Placeholder: Investor Relations Phone Number]
-            </p>
-            <p className="text-muted-foreground">
-              We are committed to promptly and effectively addressing any concerns or grievances from our valued investors.
-            </p>
-          </CardContent>
-        </Card>
-      </SectionContainer>
     </PageContainer>
   );
 }
