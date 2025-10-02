@@ -126,7 +126,7 @@ export default function CareerPage() {
       {/* Hero Banner */}
       <SectionContainer
         title="Join Our Team"
-        subtitle="Shape the Future of Finance with Us"
+        subtitle="Grow With Shine Blue Hire"
         className="pt-0 md:pt-0"
       >
         <div className="relative mb-12 overflow-hidden rounded-lg shadow-xl aspect-[16/7]">
