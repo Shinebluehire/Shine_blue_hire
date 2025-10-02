@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/accordion"
 
 const policies = [
-  { id: 'kyc', title: 'KYC Policy', description: 'Our Know Your Customer policy ensures compliance and security.' },
+  { id: 'kyc', title: 'KYC and AML Policy', description: 'Our Know Your Customer policy ensures compliance and security.' },
   { id: 'aml', title: 'AML Policy', description: 'Our Anti-Money Laundering policy outlines procedures to prevent financial crimes.' },
   { id: 'privacy', title: 'Privacy Policy', description: 'How we collect, use, and protect your personal information.' },
   { id: 'grievance', title: 'Grievance Redressal', description: 'Procedure for addressing customer complaints and concerns.' },

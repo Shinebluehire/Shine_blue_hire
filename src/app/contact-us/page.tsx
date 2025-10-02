@@ -51,7 +51,7 @@ export default function ContactUsPage() {
                   <h4 className="font-semibold text-lg mb-1">Registered Office</h4>
                   <p className="text-muted-foreground flex items-start">
                     <MapPin className="h-5 w-5 mr-2 mt-1 text-accent flex-shrink-0" />
-                    C/o Surender Kumar Kandoi, H.No-9, Ward No-29, Near Railway Hospital, Jaipur Road, Sikar, Rajasthan-332001
+                    Shop no. 5, 3rd floor, City square, near Kesar petrol pump, G.T Road , Jalandhar, Jalandhar, PB 144001
                   </p>
                 </div>
                 <div>
