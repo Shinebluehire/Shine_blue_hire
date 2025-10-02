@@ -138,12 +138,6 @@ export default function CareerPage() {
             className="object-cover"
             data-ai-hint="team collaboration"
           />
-          <div className="absolute inset-0 bg-primary/50 flex flex-col items-center justify-center text-center p-8">
-            <h1 className="text-4xl md:text-5xl text-white font-bold mb-4">Grow With Shine Blue Hire</h1>
-            <p className="text-white text-lg md:text-xl max-w-2xl">
-              We are passionate about financial inclusion and building a brighter future. If you share our vision, explore a rewarding career with us.
-            </p>
-          </div>
         </div>
 
         {/* Company Values */}
@@ -297,3 +291,5 @@ export default function CareerPage() {
     </PageContainer>
   );
 }
+
+    
