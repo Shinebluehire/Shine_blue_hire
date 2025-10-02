@@ -58,7 +58,7 @@ export default function ContactUsPage() {
                   <h4 className="font-semibold text-lg mb-1">Corporate Office</h4>
                   <p className="text-muted-foreground flex items-start">
                     <MapPin className="h-5 w-5 mr-2 mt-1 text-accent flex-shrink-0" />
-                    Jaipur Road, Near Thar Honda, Sikar, Rajasthan-332001
+                    Near Thar Honda, Jaipur road, Sikar, Rajasthan 332001
                   </p>
                 </div>
                 <div className="flex items-center space-x-3">
