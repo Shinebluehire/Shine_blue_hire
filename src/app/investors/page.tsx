@@ -257,7 +257,7 @@ export default function InvestorsPage() {
             <p className="text-muted-foreground">For any investor-related queries, please reach out to:</p>
             <p className="font-semibold">Investor Relations Department</p>
             <p><a href="mailto:investors@shinebluehire.com" className="text-accent hover:underline">investors@shinebluehire.com</a></p>
-            <p>[Placeholder: Investor Relations Phone Number]</p>
+            <p>01572-245235, 9251200245</p>
             <p>[Placeholder: Address for Investor Correspondence]</p>
           </CardContent>
         </Card>
@@ -265,6 +265,3 @@ export default function InvestorsPage() {
     </PageContainer>
   );
 }
-
-
-    
