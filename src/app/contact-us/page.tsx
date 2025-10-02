@@ -118,16 +118,17 @@ export default function ContactUsPage() {
       <SectionContainer title="Our Location" subtitle="Visit Us" className="bg-secondary/30">
         <Card className="shadow-lg overflow-hidden">
           <CardContent className="p-0">
-            {/* Google Map Embed Placeholder */}
-            <div className="aspect-video w-full bg-muted flex items-center justify-center">
-               <Image
-                  src="https://placehold.co/1200x600.png"
-                  alt="Google Map Embed showing company location"
-                  width={1200}
-                  height={600}
-                  className="object-cover"
-                  data-ai-hint="map location"
-                />
+            <div className="aspect-video w-full">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3545.926838328606!2d75.16353217424039!3d27.59487752671518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDM1JzQxLjYiTiA3NcKwMDknNTguMCJF!5e0!3m2!1sen!2sin!4v1722863959141!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Shine Blue Hire Purchase Location"
+              ></iframe>
             </div>
           </CardContent>
         </Card>
