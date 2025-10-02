@@ -71,7 +71,7 @@ export default function ContactUsPage() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-accent" />
-                  <a href="mailto:info@shinebluehire.com" className="text-muted-foreground hover:text-primary">info@shinebluehire.com</a>
+                  <a href="mailto:Info@shinebluehpl.com" className="text-muted-foreground hover:text-primary">Info@shinebluehpl.com</a>
                 </div>
               </CardContent>
             </Card>

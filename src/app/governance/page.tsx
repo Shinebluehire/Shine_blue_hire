@@ -11,12 +11,40 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
+// const policies = [
+//   { id: 'kyc', title: 'KYC and AML Policy', description: 'Our Know Your Customer policy ensures compliance and security.' },
+//   { id: 'aml', title: 'AML Policy', description: 'Our Anti-Money Laundering policy outlines procedures to prevent financial crimes.' },
+//   { id: 'privacy', title: 'Privacy Policy', description: 'How we collect, use, and protect your personal information.' },
+//   { id: 'grievance', title: 'Grievance Redressal', description: 'Procedure for addressing customer complaints and concerns.' },
+// ];
+
 const policies = [
-  { id: 'kyc', title: 'KYC and AML Policy', description: 'Our Know Your Customer policy ensures compliance and security.' },
-  { id: 'aml', title: 'AML Policy', description: 'Our Anti-Money Laundering policy outlines procedures to prevent financial crimes.' },
-  { id: 'privacy', title: 'Privacy Policy', description: 'How we collect, use, and protect your personal information.' },
-  { id: 'grievance', title: 'Grievance Redressal', description: 'Procedure for addressing customer complaints and concerns.' },
+  { 
+    id: 'kyc-aml', 
+    title: 'KYC and AML Policy', 
+    description: 'Our Know Your Customer and Anti-Money Laundering policy ensures compliance, security, and the prevention of financial crimes.',
+    link: 'https://drive.google.com/file/d/1fx5gacHFsyqZXLr0xH8Mpapox-SnaSvf/view?usp=sharing'
+  },
+  { 
+    id: 'security', 
+    title: 'Security Policy', 
+    description: 'Outlining our measures to protect customer data and our operational systems from threats and unauthorized access.',
+    link: 'https://drive.google.com/file/d/1liFz0ZjPPo23a1CJFcWhRwXrNSiTg9S2/view?usp=sharing'
+  },
+  { 
+    id: 'risk-compliance', 
+    title: 'Risk and Compliance Policy', 
+    description: 'Our framework for identifying, assessing, and managing risks, ensuring adherence to all regulatory standards.',
+    link: 'https://drive.google.com/file/d/1v_0hQUn_dBy0EmHKZao_38alClz2C6bG/view?usp=sharing'
+  },
+  { 
+    id: 'board-of-directors', 
+    title: 'Board of Directors', 
+    description: 'Information regarding the composition, roles, and responsibilities of our Board of Directors for effective governance.',
+    link: 'https://drive.google.com/file/d/1PgTG8IZRgddlI8Tp9ZZ8-htY9iEwz0Re/view?usp=sharing'
+  },
 ];
+
 
 export default function GovernancePage() {
   return (
