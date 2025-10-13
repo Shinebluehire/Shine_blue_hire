@@ -50,7 +50,6 @@ export function ProductCard({
       </CardHeader>
       <CardContent className="flex-grow">
         {ticketSize && <p className="text-sm mb-1"><span className="font-semibold">Ticket Size:</span> {ticketSize}</p>}
-        {interestRate && <p className="text-sm mb-1"><span className="font-semibold">Interest Rate:</span> {interestRate}</p>}
         {tenure && <p className="text-sm mb-3"><span className="font-semibold">Tenure:</span> {tenure}</p>}
         {features && features.length > 0 && (
           <ul className="space-y-1 list-disc list-inside text-sm text-muted-foreground">
