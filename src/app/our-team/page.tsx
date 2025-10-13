@@ -36,13 +36,6 @@ const boardOfDirectors = [
   },
 ];
 
-const keyManagement = [
-  { name: 'Mr. Manoj Kumar Tailor', designation: 'Senior Vice President' },
-  { name: 'Mr. Banwari Lal Garhwal', designation: 'Vice President (Sales - SBL)' },
-  { name: 'Mr. Mandeep Singh', designation: 'Collection Head' },
-  { name: 'Mr. Praveen Kumar', designation: 'Head of Human Resources' },
-];
-
 const teamImages = [
   { src: '/images/media/img1.jpeg', alt: 'Team Celebration Image 1', dataAiHint: 'team celebration' },
   { src: '/images/media/img2.jpeg', alt: 'Team Celebration Image 2', dataAiHint: 'team meeting' },
@@ -87,20 +80,6 @@ export default function OurTeamPage() {
               <CardContent>
                 <p className="text-sm text-muted-foreground">{director.bio}</p>
               </CardContent>
-            </Card>
-          ))}
-        </div>
-      </SectionContainer>
-
-      <SectionContainer title="Key Management Personnel" subtitle="Leading Our Operations" className="bg-secondary/30">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {keyManagement.map((person, index) => (
-            <Card key={index} className="text-center shadow-md">
-              <CardHeader className="items-center">
-                <UserCircle className="h-16 w-16 text-primary mb-3" />
-                <CardTitle className="font-headline text-lg text-primary">{person.name}</CardTitle>
-                <CardDescription>{person.designation}</CardDescription>
-              </CardHeader>
             </Card>
           ))}
         </div>
