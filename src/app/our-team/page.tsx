@@ -16,21 +16,21 @@ const boardOfDirectors = [
   {
     name: 'Hari Parsad Sharma',
     title: 'MD & CEO',
-    photo: '/images/director/hari.png',
+    photo: '/images/director/hari.jpeg',
     bio: 'He is Graduate by qualification with over 20 years of rich experience in the field of finance, sales, collections, operations, credit, legal, Debt Management and business development. He was previously Associated with Dev Finance as Business Owner from 2003 & also engaged in Three-wheeler dealership of Kerala & Baxy. He has developed a strategic presence of the company in high yielding - pre-owned vehicle financing with expertise in loan origination and collection.',
     dataAiHint: 'professional headshot'
   },
   {
     name: 'Mr. Ashish Nagwan',
     title: 'Executive Director',
-    photo: '/images/director/Ashish.png',
+    photo: '/images/director/Ashish.jpeg',
     bio: 'He is Post Graduate & CA intern (IPCC 2012) by qualification with over 5 years of experience in the field of finance and accounts, Debt Management. He is previously Associated with Dev Finance as accountant from 2018 & also engaged teaching in collage. Complete Article ship from Somani Associate from 2012 to 2015. he is so energetic by nature and always work for growth of company.',
     dataAiHint: 'corporate portrait'
   },
   {
     name: 'Mrs. Rekha Sharma',
     title: 'Executive Director',
-    photo: '/images/director/rekha.png',
+    photo: '/images/director/rekha.jpeg',
     bio: 'She is Graduate by qualification with over 5 years of rich experience in the Management and development. she is also engaged in proprietorship farm of three-wheeler business by name of Dev automobile. She is engaged in social working & activities.',
     dataAiHint: 'business person'
   },
