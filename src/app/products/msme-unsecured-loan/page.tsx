@@ -99,7 +99,7 @@ export default function MSMEUnsecuredLoanPage() {
               {[
                 ["Collateral", "Required", "Not Required"],
                 ["Max Loan", "₹10 Lakhs", "₹5 Lakhs"],
-                ["ROI", "22–23%", "30%"],
+                ["ROI", "Lower", "Higher"],
                 ["Processing Speed", "Moderate", "Fast (1–3 days)"],
                 ["Ideal For", "Established MSMEs", "Growing MSMEs / Startups"],
               ].map(([feature, secured, unsecured], index) => (

@@ -97,8 +97,8 @@ export default function MSMESecuredLoanPage() {
               </tr>
               <tr className="border-t">
                 <td className="px-4 py-3">Interest Rate</td>
-                <td className="px-4 py-3">Lower (23%)</td>
-                <td className="px-4 py-3">Higher (30%)</td>
+                <td className="px-4 py-3">Lower</td>
+                <td className="px-4 py-3">Higher</td>
               </tr>
               <tr className="border-t">
                 <td className="px-4 py-3">Loan Limit</td>

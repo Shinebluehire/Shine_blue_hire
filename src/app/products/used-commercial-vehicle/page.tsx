@@ -102,7 +102,7 @@ export default function UsedCommercialVehicleLoanPage() {
             <tbody className="text-muted-foreground">
               {[
                 ["Collateral Required", "Yes", "No"],
-                ["Interest Rate", "Lower (22%)", "Higher (30%)"],
+                ["Interest Rate", "Lower", "Higher"],
                 ["Max Loan", "₹15 Lakhs", "₹5 Lakhs"],
                 ["Approval Speed", "2–4 Days", "Same Day"],
                 ["Tenure", "Up to 60 Months", "Up to 36 Months"],
