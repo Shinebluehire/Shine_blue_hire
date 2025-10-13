@@ -21,7 +21,7 @@ const loanProducts = [
     ticketSize: 'Up to ₹15 Lakhs',
     interestRate: '22%',
     tenure: 'Up to 36 Months',
-    features: ['Processing Fee: 2%'],
+    features: [],
     image: '/images/banner/UCV.jpg',
   },
   {
@@ -33,7 +33,7 @@ const loanProducts = [
     ticketSize: 'Up to ₹10 Lakhs',
     interestRate: '23%',
     tenure: 'Up to 60 Months',
-    features: ['Processing Fee: 2.5%'],
+    features: [],
     image: '/images/banner/msme.jpg',
   },
   {
@@ -45,7 +45,7 @@ const loanProducts = [
     ticketSize: 'Up to ₹2.5 Lakhs',
     interestRate: '24%',
     tenure: 'Up to 30 Months',
-    features: ['Processing Fee: 2%'],
+    features: [],
     image: '/images/banner/TWL.png',
   },
   {
@@ -57,7 +57,7 @@ const loanProducts = [
     ticketSize: 'Up to ₹5 Lakhs',
     interestRate: '30%',
     tenure: 'Up to 36 Months',
-    features: ['Processing Fee: 3%'],
+    features: [],
     image: '/images/banner/msme2.jpg',
   },
 ];
