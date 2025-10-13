@@ -38,7 +38,6 @@ export default function TwoWheelerLoanPage() {
             </p>
             <ul className="list-disc list-inside">
               <li>Loan Amount: Up to ₹2.5 Lakhs</li>
-              <li>Interest Rate: 24% p.a.</li>
               <li>Tenure: Up to 30 Months</li>
               <li>Minimal documentation & instant approval</li>
             </ul>
