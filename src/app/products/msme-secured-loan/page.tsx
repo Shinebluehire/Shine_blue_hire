@@ -59,7 +59,6 @@ export default function MSMESecuredLoanPage() {
           <li><strong>Loan Amount:</strong> Up to ₹10 Lakhs</li>
           <li><strong>Tenure:</strong> Up to 60 Months</li>
           <li><strong>Interest Rate:</strong> 23% p.a. (ROI)</li>
-          <li><strong>Processing Fee:</strong> 2.5%</li>
           <li><strong>Collateral:</strong> Required (property/vehicle/assets)</li>
           <li><strong>Eligibility:</strong> Valid business registration, 2+ years operation</li>
         </ul>

@@ -43,7 +43,6 @@ export default function UsedCommercialVehicleLoanPage() {
             <ul className="list-disc list-inside space-y-1 text-muted-foreground text-sm">
               <li>Loan Amount: Up to ₹15 Lakhs</li>
               <li>Tenure: Up to 36 Months</li>
-              <li>Processing Fee: 2%</li>
               <li>Fast disbursal & minimal paperwork</li>
             </ul>
             <Badge className="bg-accent text-accent-foreground">No Hidden Charges</Badge>

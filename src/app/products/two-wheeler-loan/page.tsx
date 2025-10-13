@@ -40,7 +40,6 @@ export default function TwoWheelerLoanPage() {
               <li>Loan Amount: Up to ₹2.5 Lakhs</li>
               <li>Interest Rate: 24% p.a.</li>
               <li>Tenure: Up to 30 Months</li>
-              <li>Processing Fee: 2%</li>
               <li>Minimal documentation & instant approval</li>
             </ul>
             <Badge variant="outline" className="text-sm text-accent border-accent">Zero Prepayment Charges</Badge>

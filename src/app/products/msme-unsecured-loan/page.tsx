@@ -39,7 +39,6 @@ export default function MSMEUnsecuredLoanPage() {
               <li>Loan Amount: Up to ₹5 Lakhs</li>
               <li>ROI: 30%</li>
               <li>Tenure: Up to 36 Months</li>
-              <li>Processing Fee: 3%</li>
               <li>Quick approvals with minimal paperwork</li>
             </ul>
             <Badge className="bg-yellow-400 text-black">No Collateral Required</Badge>
